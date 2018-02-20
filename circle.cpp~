@@ -1,0 +1,42 @@
+#include <iostream>
+#include <sstream>
+#include <fstream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+struct Node{
+  int value;
+  Node* next;
+};
+
+int main(){
+  Node* current = new Node;
+  int size, increment;
+  cout << "Input the size of the circle and then the increment by which they will be removed" << endl;
+  cin >> size;
+  cin >> increment;
+  Node* begin = current;
+  for (int i = 1; i <= size; i++){
+    current->value = i;
+    current->next = new Node;
+    current = current->next;
+  }
+  current->next = begin;
+  while (size > 1){
+    for (int i = 0; i < increment-1; i++){
+      current = current->next;
+    }
+    current->next = current->next->next;
+    size--;
+    for (int i = 0; i < size; i++){
+      cout << current->value;
+      current = current->next;
+    }
+    cout << endl;
+  }
+  cout << "The last remaining member is " << current->value << endl;
+  return 1;
+}
+
