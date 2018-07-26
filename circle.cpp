@@ -42,7 +42,7 @@ int main(){
       loop = true;
     }
     else{
-      loop = false;
+      loop = true;
     }
   }
   return 1;
